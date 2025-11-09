@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+vendor/
+nbbuild/
+dist/
+nbproject
+nbproject/private
+nbactions.xml
+nb-configuration.xml
+nbdist/
+.nb-gradle/
+
+# Build files
+*.map
+*.css.map
+*.js.map
+.greyhr
+
+# OS Files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+sftp-config.json
+
+# IDE
+_book
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+npm-debug.log
+
+# Environment
+.env
