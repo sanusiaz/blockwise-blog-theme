@@ -4,7 +4,6 @@
  * 
  * @package blockwise
  */
-
 get_header();
 
 ?>

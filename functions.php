@@ -5,14 +5,31 @@
  * @package blockwise
 */
 
+if ( ! defined('BLOCKWISE_DIR_PATH') ) {
+    define('BLOCKWISE_DIR_PATH', untrailingslashit( get_template_directory() ));
+}
+
+if ( ! defined('BLOCKWISE_DIR_PATH_URI') ) {
+    define('BLOCKWISE_DIR_PATH_URI', untrailingslashit( get_template_directory_uri() ));
+}
+
+if ( ! defined('BLOCKWISE_STYLESHEET_URI') ) {
+    define('BLOCKWISE_STYLESHEET_URI', untrailingslashit( get_stylesheet_uri() ));
+}
+
+// require the autoloader once
+require_once BLOCKWISE_DIR_PATH.'/app/autoloader.php';
+// register autploader
+register_blockwise_autoloader(BLOCKWISE_DIR_PATH);
+
 function blockwise_enqueue_styles() {
 
     // register style
     wp_register_style(
         'stylesheet', 
-        get_stylesheet_uri(), 
+        BLOCKWISE_STYLESHEET_URI, 
         [], 
-        filemtime(get_template_directory().'/style.css')
+        filemtime(BLOCKWISE_DIR_PATH.'/style.css')
     );
 
     // enqueue Style
@@ -28,9 +45,9 @@ function blockwise_enqueue_scripts()
     // register main theme js
     wp_register_script(
         'blockwise-app',
-        get_template_directory_uri().'/assets/js/app.js',
+        BLOCKWISE_DIR_PATH_URI.'/assets/js/app.js',
         ['jquery'],
-        filemtime(get_template_directory().'/assets/js/app.js'),
+        filemtime(BLOCKWISE_DIR_PATH.'/assets/js/app.js'),
         true
     );
 
